@@ -16,6 +16,8 @@
 
 package com.example.android.kotlincoroutines.main
 
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import com.example.android.kotlincoroutines.util.SkipNetworkInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -44,7 +46,5 @@ fun getNetworkService() = service
  */
 interface MainNetwork {
     @GET("next_title.json")
-    fun fetchNextTitle(): Call<String>
+    suspend fun fetchNextTitle(): String
 }
-
-
